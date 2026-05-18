@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { products } from "../../../lib/data";
+import { getProductById } from "../../../lib/data";
 import { getIdFromSlug } from "../../../lib/utils/slug";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -10,7 +10,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const idStr = getIdFromSlug(slug);
   const productId = parseInt(idStr, 10);
   
-  const product = products.find((p) => p.id === productId);
+  const product = await getProductById(productId);
   
   if (!product) {
     notFound();
@@ -23,7 +23,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="relative aspect-[4/5] bg-neutral-200 rounded-sm overflow-hidden shadow-lg">
           <Image 
             src={product.image} 
-            alt={product.name} 
+            alt={product.name || ""} 
             fill 
             className="object-cover" 
             priority

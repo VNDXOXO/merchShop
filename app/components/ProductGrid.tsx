@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { products } from "../../lib/data";
+import { getProducts } from "../../lib/data";
 import { generateProductSlug } from "../../lib/utils/slug";
 
-export default function ProductGrid() {
+export default async function ProductGrid() {
+  const products = await getProducts();
   return (
     <section className="py-24 px-10 md:px-20">
       <div className="flex justify-between items-end mb-12 border-b border-white/10 pb-4">
