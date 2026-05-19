@@ -8,10 +8,9 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full flex flex-col">
       <Navbar />
-      <Marquee />
-      <Hero />
       <Marquee/>
-      <ProductGrid />
+      <Hero />
+      <ProductGrid gridTitle="New Arrivals 🔥"/>
       <Footer />
     </main>
   );

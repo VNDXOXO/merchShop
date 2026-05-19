@@ -11,9 +11,25 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --animate-marquee: marquee 25s linear infinite;
+
   @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.svg-trail {
+  animation: marchingAntsSvg 1s linear infinite;
+}
+
+@keyframes marchingAntsSvg {
+  to {
+    stroke-dashoffset: -20px;
   }
 }
 
@@ -25,5 +41,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   /* overflow-x: hidden; */
-  
+
+}
+
+
+.paytone-one-regular {
+  font-family: var(--font-paytone);
 }
